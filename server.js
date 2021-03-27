@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 
 
-
+//หฟหกฟหก
 https.get('https://spreadsheets.google.com/feeds/cells/1uGr0mIWn9pUflZQRuei1FepXv30JdQSBVWLUjL_Zpyw/1/public/full?alt=json', function(resp) {
     resp.setEncoding('utf8');
     var body = '';
@@ -11,7 +11,7 @@ https.get('https://spreadsheets.google.com/feeds/cells/1uGr0mIWn9pUflZQRuei1FepX
         body += data;
       })
     resp.on('end', function() {
-        fs.writeFileSync(path.resolve(__dirname, './sheet.json'), body, function(err){
+        fs.writeFileSync(path.resolve(__dirname, './json/sheet.json'), body, function(err){
             if (err) throw err;
             console.log('Generated sheet.json');
         });
@@ -40,7 +40,7 @@ https.get('https://spreadsheets.google.com/feeds/cells/1uGr0mIWn9pUflZQRuei1FepX
         result = sort_by_key(result ,'number');
         console.log(result);
 
-        fs.writeFileSync(path.resolve(__dirname, './number.json'), JSON.stringify(stockdata));
+        fs.writeFileSync(path.resolve(__dirname, './json/number.json'), JSON.stringify(stockdata));
         console.log('gen number json')
     });
 });
